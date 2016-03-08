@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Help People</title>
+        <link rel="stylesheet" href="css/font-awesome.min.css" />
+        <link rel="stylesheet" href="css/jquery.mobile.min.css" />
+        <link rel="stylesheet" href="vendor/waves/waves.min.css" />
+        <link rel="stylesheet" href="vendor/wow/animate.css" />
+        <link rel="stylesheet" href="css/nativedroid2.css" />
+        <link rel="stylesheet" href="css/login.css" />
+        <script>
+            if(localStorage.getItem('token'))
+                window.location = "main.html";
+        </script>
+    </head>
+    <body>
+        <div data-role="page">
+            <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+                <h1 class="wow fadeIn" style="text-align: center">Help People</h1>
+            </div>
+
+            <div role="main" class="ui-content" data-inset="false">
+
+                <div class=" col-xs-12 col-sm-12 col-md-12">
+                    <form role="form" method="post" id="signInForm">
+                        <hr class="colorgraph">
+                        <div class="form-group phoneInput">
+                            <input required type="tel" name="phone" class="form-control input-lg" placeholder="Enter your phone ex. 05268196925" tabindex="4">
+                        </div>
+                        <div class="row codeInput" style="display: none">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <div class="form-group">
+                                    <input required type="text" name="code"  class="form-control input-lg" placeholder="enter 5-digits code" tabindex="5">
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="colorgraph">
+                        <div class="row authBtn">
+                            <div class="col-xs-12 col-md-6">
+                                <button onclick="Auth.signIn(this)" type="button" class="btn btn-success btn-block btn-lg">Sign In</button>
+                            </div>
+                        </div>
+                        <div class="row smsBtn">
+                            <div class="col-xs-12 col-md-6">
+                                <button onclick="Auth.sendSms(this)" type="button" class="btn btn-success btn-block btn-lg">Send code</button>
+                            </div>
+                        </div>
+                        <div class="result"></div>
+                    </form>
+                </div>
+
+                <div id="loader">
+                    <img src="img/loader.gif" alt=""/>
+                </div>
+                <div  id="popupDialog">
+                    <div data-role="content">
+                        <span data-inline="true" class="ui-btn noPhoneAlert">
+                             No such phone number found in our system
+                        </span>
+                        <span  data-inline="true" class="ui-btn wrongCodeAlert">
+                             Wrong code number
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script>
+            $(document).bind('mobileinit',function(){
+                $.mobile.changePage.defaults.changeHash = false;
+                $.mobile.hashListeningEnabled = false;
+                $.mobile.pushStateEnabled = false;
+                $.mobile.allowCrossDomainPages = true;
+            });
+        </script>
+        <script src="js/jquery.mobile.min.js"></script>
+        <script src="vendor/waves/waves.min.js"></script>
+        <script src="vendor/wow/wow.min.js"></script>
+        <script src="js/nativedroid2.js"></script>
+        <script src="nd2settings.js"></script>
+        <script src="js/core.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+            //document.addEventListener("deviceready",onDeviceReady,false);
+
+        </script>
+    </body>
+</html>

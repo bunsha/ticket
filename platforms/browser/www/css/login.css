@@ -1,0 +1,28 @@
+.ui-input-text:after, .ui-input-search:after{
+    display:none
+}
+
+.chooser{
+    margin-top:10%
+}
+.chooser button{
+    width: 35%;
+    float:left
+}
+.chooser h5{
+    float:left;
+    width:30%;
+    margin-top:10px;
+}
+#popupDialog{
+    display: none;
+    color:red;
+    font-weight: bold;
+}
+#loader{
+    display: none;
+    text-align: center;
+}
+.authBtn, .wrongCodeAlert, .noPhoneAlert{
+    display:none
+}

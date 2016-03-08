@@ -1,0 +1,15 @@
+.createLink{
+    display: none;
+}
+.zmdi{
+    color:cadetblue!important;
+    font-size: 35px!important;
+}
+.ui-thumbnail-circular{
+    left:0px;
+}
+.comment_text{
+    font-size:70%;
+    padding:5%;
+    padding-top:0;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Help People</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/jquery.mobile.min.css" />
+    <link rel="stylesheet" href="vendor/waves/waves.min.css" />
+    <link rel="stylesheet" href="vendor/wow/animate.css" />
+    <link rel="stylesheet" href="css/nativedroid2.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+</head>
+<body>
+    <div data-role="page">
+        <!-- panel left -->
+        <div data-role="panel" id="leftpanel" data-display="overlay" data-position-fixed="true" >
+
+            <div class='nd2-sidepanel-profile wow fadeInDown'>
+                <img class='profile-background' src="img/1.jpg" />
+                <div class="row">
+                    <div class='col-xs-4 center-xs'>
+                        <div class='box'>
+                            <img class="profile-thumbnail" src="http://lorempixel.com/200/200/people/9/" />
+                        </div>
+                    </div>
+                    <div class='col-xs-8'>
+                        <div class='box profile-text'>
+                            <strong></strong>
+                            <span class='subline'>Regular user</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div data-role="collapsible" data-inset="false"  data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+                <h3>Tickets</h3>
+                <ul data-role="listview" data-inset="false" data-icon="false">
+                    <li class="allLink"><a onclick="Ticket.all()" href="#leftpanel">All</a></li>
+                    <li class="createLink"><a onclick="Ticket.create()" href="#leftpanel">Create</a></li>
+                    <li><a onclick="Ticket.my()" href="#leftpanel">Available</a></li>
+                    <li><a onclick="Ticket.inProgress()" href="#leftpanel">In Progress</a></li>
+                    <li><a onclick="Ticket.doneByMe()" href="#leftpanel">Done</a></li>
+                    <li><a onclick="Ticket.closedMy()" href="#leftpanel">Closed</a></li>
+                </ul>
+            </div>
+            <div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+                <h3>Settings</h3>
+                <ul data-role="listview" data-icon="false">
+                    <li><a onclick="Settings.show()" href="#leftpanel">Tickets Filter</a></li>
+                    <li><a >Notifications</a></li>
+                </ul>
+            </div>
+            <div data-role="collapsible" data-inset="false" data-collapsed-icon="carat-d" data-expanded-icon="carat-d" data-iconpos="right">
+                <h3>Profile</h3>
+                <ul data-role="listview" data-icon="false">
+                    <li><a>Edit</a></li>
+                    <li><a onclick="Auth.logout()">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /panel left -->
+
+        <div data-role="header" data-position="fixed" class="wow fadeInDown" data-wow-delay="0.2s">
+            <a href="#bottomsheet" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+            <a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+            <h1 class="wow fadeIn" data-wow-delay='0.4s'>Help people</h1>
+        </div>
+
+        <div role="main" id="main" class="ui-content" data-inset="false">
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/core.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("deviceready",onDeviceReady,false);
+    </script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script>
+        $(document).bind('mobileinit',function(){
+            $.mobile.changePage.defaults.changeHash = false;
+            $.mobile.hashListeningEnabled = false;
+            $.mobile.pushStateEnabled = false;
+            $.mobile.allowCrossDomainPages = true;
+        });
+    </script>
+    <script src="js/jquery.mobile.min.js"></script>
+    <script src="vendor/waves/waves.min.js"></script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="js/nativedroid2.js"></script>
+    <script src="nd2settings.js"></script>
+
+    <script src="js/main.js"></script>
+    <script>
+        if(!localStorage.getItem('token'))
+            window.location = "index.html";
+        else{
+            if(Auth.check()){
+
+            }
+        }
+    </script>
+
+</body>
+</html>
